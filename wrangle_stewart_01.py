@@ -72,7 +72,7 @@ def only_single_units(zillow):
     to be single-unit properties. It returns zillow without those properties.
     '''
     zillow_filt = zillow[zillow.propertylandusetypeid.isin([261, 262, 263, 264, 266, 268, 273, 276, 279])]
-    zillow_filt = zillow_filt[(zillow.baths > 0) & (zillow.sq_ft > 300)]
+    zillow_filt = zillow_filt[(zillow.baths > 0) & (zillow.sq_ft > 300) & (zillow.beds > 0)]
     zillow_filt = zillow_filt[(zillow_filt.unitcnt == 1) | (zillow_filt.unitcnt.isnull())]
     return zillow_filt
 
